@@ -17,9 +17,9 @@ const text = document.querySelector('.text');
 
 select.addEventListener('change', (event) => {
     const choiceSelect = event.target.value;
-    fetch('http://localhost:3000/')
+    fetch(`http://localhost:3000/?language=${choiceSelect}`)
         .then(response => response.json())
         .then((data) => {
-            text.textContent = `Переводится как "${data[choiceSelect]}"`;
+            text.textContent = `Переводится как "${data.language}"`;
         })
 })
